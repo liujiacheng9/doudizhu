@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+@font-face{
+    font-family: moxie;
+    src: url('../fonts/01.ttf')
+}
+
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    font-family: moxie;
+}
+
+
+.container {
+    width: 1;
+    height: 1080px;
+    margin: 0;
+    padding: 0;
+    cursor:url('../images/ico/01.ico'),auto;
+}
+
+
+/* 碧蓝行项Logo */
+.logo{
+    position: absolute;
+    left: 10%;
+    top: 10%;
+
+}
+
+/* ================================================边框循环动画start============================================== */
+
+.kuangBox {
+    width: 470px;
+    /* height: 81px; */
+    height: 81px;
+    /* background-color: pink; */
+    /* background: url(../images/welcome/startgame.gif) no-repeat center;
+    background-size: cover; */
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+   
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+ 
+}
+
+.kuangBox:hover{
+    cursor: url('../images/ico/01.ico'),auto;
+}
+.kuangBox >a:hover{
+    cursor: url('../images/ico/01.ico'),auto;
+}
+.btn{
+  
+    display: block;
+    min-width: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    height: 25px;font-size: 25px;
+    /* padding: 5px; */
+    color: white;
+    background: linear-gradient(to right,#000000, #e74c3c);
+    /* border: 1px solid red; */
+    border-radius: 5px; 
+    text-align: center;
+    line-height: 25px; 
+}
+
+.btn:first-of-type{
+    background: linear-gradient(to right,  #b993d6,#8ca6db);
+  
+}
+
+.btn:last-of-type{
+    background: linear-gradient(to right,    #de6262,#ffb88c);
+
+}
+
+/* 这个效果的主要思路是用clip截图+animation动画实现边框跑起来。
+.box::before和.box::after这两伪元素分别给.box加两个同样的边框，
+设置好动画后给其中一个animation-delay延迟一半时间来达到两个不同位置的动画。
+clip: rect( top, right, bottom, left)  ,你可以理解成截图，各参数代表离边距多少开始截。 */
+.kuangBox::before,
+.kuangBox::after {
+    content: '';
+    border: 2px transparent solid;
+    border-image: linear-gradient(to right, #c9ffbf, #ffafbd) 1 10;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: -15px;
+    /* clip: rect( top, right, bottom, left) */
+    /* 上  */
+    /* clip: rect(0px, 230px, 2px, 0px);              */
+    /* 左 */
+    /* clip: rect(0px, 2px, 111px, 0px); */
+    /* 下 */
+    /* clip: rect(109px, 230px, 111px, 0px); */
+    /* 右 */
+    /* clip: rect(0px, 230px, 111px, 228px); */
+
+    animation: borderClip 8s linear infinite;
+}
+
+.kuangBox::after {
+    animation-delay: -4s;
+}
+
+.kuangBox:hover::before,
+.kuangBox:hover::after {
+    animation-play-state: paused;
+}
+
+@keyframes borderClip {
+
+    0%,
+    100% {
+        clip: rect(0px, 500px, 2px, 0px);
+    }
+
+    25% {
+        clip: rect(0px, 2px, 111px, 0px);
+    }
+
+    50% {
+        clip: rect(109px, 500px, 111px, 0px);
+    }
+
+    75% {
+        clip: rect(0px, 500px, 111px, 500px);
+    }
+}
+
+/* ================================================边框循环动画end============================================== */
+
+
+/* ================================================二维码动画start============================================== */
+.v-code {
+    width: 145px;
+    height: 240px;
+    top: 590px;
+    left: 30px;
+    padding-top: 47px;
+    float: left;
+    position: absolute;
+    background: url(../images/welcome/index_z_71df05e.png);
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+
+}
+
+.v-code .erweima {
+    display: block;
+    margin: 0 auto;
+    width: 107px;
+}
+
+.v-code .line {
+    position: absolute;
+    left: 12px;
+    top: 45px;
+
+    animation: mainbarcode 4s linear infinite;
+}
+
+@keyframes mainbarcode {
+    0% {
+
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+
+        transform: translate3d(0, 100px, 0);
+    }
+
+    100% {
+
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+/* ================================================二维码动画end============================================== */
+
+/* ================================================樱花start============================================== */
+.mid {
+    z-index: -1;
+    width: 1920px;
+    height: 1080px;
+    background: url(../images/welcome/bg2.jpg);
+    position: absolute;
+}
+
+/* ================================================樱花end============================================== */
+
+/* ================================================移动小人动画start============================================== */
+.samllCuteBox {
+    z-index: 15;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 130px;
+    height: 134px;
+    transform: translateX(100%);
+    background: url(../images/welcome/xiaoren.png) no-repeat;
+    /* 元素可以添加多个动画 ，逗号分隔*/
+    animation: smallCute 0.5s steps(7) infinite, freeMove 20s  infinite linear ;
+
+}
+
+@keyframes smallCute {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: -910px 0;
+    }
+}
+
+@keyframes freeMove {
+    0% {
+      
+        top: 0;
+        right: 0;
+        transform:rotateY(0deg) translateX(100%);
+        opacity: 1;
+    }
+
+    25% {
+      
+        top: 20%;
+        right: 80%;
+        transform: rotateY(0deg) ;
+    }
+
+    30%{
+        top: 20%;
+        right: 80%;
+        transform: rotateY(180deg) ;
+    }
+
+
+    45%{
+        top: 60%;
+        right: 20%;
+        transform: rotateY(180deg) ;
+    }
+
+    50%{
+        top: 60%;
+        right: 20%;
+        transform: rotateY(0deg) ;
+    }
+
+
+
+    70%{
+        top: 80%;
+        right: 90%;
+        transform: rotateY(0deg) ;
+    }
+
+
+    98%{
+        top: 80%;
+        right: 120%;
+        opacity: 1;
+        /* transform: rotateY(180deg) ; */
+    }
+
+    99%{
+        top: 80%;
+        right: 120%;
+        opacity: 0; 
+    }
+
+
+    100%{
+        top: 0;
+        right: 0;
+        opacity: 0;
+    }
+
+
+
+   
+    
+
+   
+}
+
+/* ================================================移动小人动画end============================================== */
+
+
+/* ================================================云雾动画start============================================== */
+#yun1,
+#yun2,
+#yun3,
+#yun4 {
+    /* z-index: 50; */
+    position: absolute;
+
+}
+
+.yun1 {
+    z-index: 23;
+}
+.yun2 {
+    z-index: 22;
+}
+.yun3 {
+    z-index: 21;
+}
+.yun4 {
+    z-index: 20;
+}
+
+#yun1 {
+    /* z-index: 50; */
+    top: -125px;
+    left: -252px;
+}
+
+#yun2 {
+    /* z-index: 40; */
+    top: -125px;
+    left: 615px;
+}
+
+#yun3 {
+    /* z-index: 39; */
+    top: 298px;
+    left: -182px;
+}
+
+#yun4 {
+    /* z-index: 38; */
+    top: 298px;
+    left: 680px;
+}
+
+.yun1 {
+    animation: moveYun1 3s forwards ease-in-out;
+}
+
+.yun2 {
+    animation: moveYun2 3s forwards ease-in-out;
+}
+
+.yun3 {
+    animation: moveYun3 3s forwards ease-in-out;
+}
+
+.yun4 {
+    animation: moveYun4 3s forwards ease-in-out;
+}
+
+
+
+@keyframes moveYun1 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(-1400px, -700px);
+    }
+}
+
+@keyframes moveYun2 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(1400px, -700px);
+    }
+}
+
+@keyframes moveYun3 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(-1400px, 700px);
+    }
+}
+
+@keyframes moveYun4 {
+    0% {
+        transform: translate(0px, 0px);
+    }
+
+    100% {
+        transform: translate(1400px, 700px);
+    }
+}
+
+/* ================================================云雾动画end============================================== */

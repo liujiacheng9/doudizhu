@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/game.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="cutscenes-container">
+            <div class="cutscenes">
+                <div class="cutscenes-slide-container">
+                    <div class="cutscenes-slide">
+                        <div class="cutscenes-icon">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="cutscenes-video">
+                    <video src="../video/cutscence.mp4" autoplay muted  style="width: 100%;height:100%;object-fit:fill" id="cutscence-video"></video>
+                </div>
+                <div class="cutscenes-mask"></div>
+            </div>
+               
+        </div>
+
+        <div class="container-show">
+
+            <div class="game">
+
+                <!-- 地主 -->
+                <div class="remain">
+                    <ul class="remain_poker">
+                    </ul>
+                </div>
+
+                <!-- 电脑2-->
+                <div class="player p2">
+
+                    <div class="player-options">
+                        <div class="button_container">
+                            <div class="robLandlord">
+                                <div class="timer-container">
+                                    <div class="timer-circle">
+
+                                    </div>
+                                    <div class="timer1">
+                                        15
+                                    </div>
+
+                                </div>
+
+                                <div><span class="landloard rob">抢地主</span></div>
+                                <div><span class="landloard noRob">不抢</span></div>
+                            </div>
+                            <div class="multiple">
+                                <div class="timer-container">
+                                    <div class="timer-circle">
+
+                                    </div>
+                                    <div class="timer2">
+                                        15
+                                    </div>
+
+                                </div>
+
+                                <div><span class="superDouble doubles">超级加倍</span></div>
+                                <div><span class="double doubles">加倍</span></div>
+                                <div><span class="noDouble doubles">不加倍</span></div>
+                            </div>
+                            <div class="playCard">
+                                <div class="timer-container">
+                                    <div class="timer-circle">
+
+                                    </div>
+                                    <div class="timer3">
+                                        15
+                                    </div>
+
+                                </div>
+
+                                <div><span class="play plays">出牌</span></div>
+                                <div><span class="noPlay plays">要不起</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-info">
+                        <div class="details">
+                            <div class="head">
+                                <div class="head-circle">
+
+                                </div>
+                                <div class="head-icon">
+                                    <img src="../images/head/01-04.png" alt="">
+                                </div>
+                            </div>
+                            <div class='msg'>
+                                <div class="username">
+                                    <div class="username-show">
+                                        拉菲
+                                    </div>
+
+                                </div>
+                                <div class="identity">
+                                    <img src="../images/game/identity/海军元帅.png" alt="">
+                                </div>
+                                <div class="score">2000金币</div>
+                            </div>
+                        </div>
+                        <div class="poker-container">
+                            <ul class="poker left_poker">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 玩家 -->
+                <div class="player">
+
+                    <div class="player-options">
+                        <div class="button_container">
+                            <div class="robLandlord">
+                                <div class="timer-container">
+                                    <div class="timer-circle">
+
+                                    </div>
+                                    <div class="timer1">
+                                        15
+                                    </div>
+
+                                </div>
+
+
+                                <div><span class="landloard rob">抢地主</span></div>
+                                <div><span class="landloard noRob">不抢</span></div>
+                            </div>
+                            <div class="multiple">
+                                <div class="timer-container">
+                                    <div class="timer-circle">
+
+                                    </div>
+                                    <div class="timer2">
+                                        15
+                                    </div>
+
+                                </div>
+
+                                <div><span class="superDouble doubles">超级加倍</span></div>
+                                <div><span class="double doubles">加倍</span></div>
+                                <div><span class="noDouble doubles">不加倍</span></div>
+                            </div>
+                            <div class="playCard">
+                                <div class="timer-container">
+                                    <div class="timer-circle">
+
+                                    </div>
+                                    <div class="timer3">
+                                        15
+                                    </div>
+
+                                </div>
+
+                                <div><span class="play plays">出牌</span></div>
+                                <div><span class="noPlay plays">要不起</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-info">
+                        <div class="details">
+                            <div class="head">
+                                <div class="head-circle">
+
+                                </div>
+                                <div class="head-icon">
+                                    <img src="../images/head/01-03.png" alt="" id="p1_head">
+                                </div>
+                            </div>
+                            <div class='msg'>
+                                <div class="username">
+                                    <div class="username-show" id="p1_name">
+                                        萨福克
+                                    </div>
+
+                                </div>
+                                <div class="identity">
+                                    <img src="../images/game/identity/少校.png" alt="">
+                                </div>
+                                <div class="score" id="p1_balance">2000金币</div>
+                            </div>
+                        </div>
+                        <div class="poker-container">
+                            <ul class="poker middle_poker">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 电脑3-->
+                <div class="player p3">
+
+                    <div class="player-options">
+                        <div class="button_container">
+                            <div class="robLandlord">
+                                <div class="timer-container">
+                                    <div class="timer-circle">
+
+                                    </div>
+                                    <div class="timer1">
+                                        15
+                                    </div>
+
+                                </div>
+                                <div><span class="landloard rob">抢地主</span></div>
+                                <div><span class="landloard noRob">不抢</span></div>
+                            </div>
+                            <div class="multiple">
+                                <div class="timer-container">
+                                    <div class="timer-circle">
+
+                                    </div>
+                                    <div class="timer2">
+                                        15
+                                    </div>
+
+                                </div>
+
+                                <div><span class="superDouble doubles">超级加倍</span></div>
+                                <div><span class="double doubles">加倍</span></div>
+                                <div><span class="noDouble doubles">不加倍</span></div>
+                            </div>
+                            <div class="playCard">
+                                <div class="timer-container">
+                                    <div class="timer-circle">
+
+                                    </div>
+                                    <div class="timer3">
+                                        15
+                                    </div>
+
+                                </div>
+
+                                <div><span class="play plays">出牌</span></div>
+                                <div><span class="noPlay plays">要不起</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="player-info">
+                        <div class="details">
+                            <div class="head">
+                                <div class="head-circle">
+
+                                </div>
+                                <div class="head-icon">
+                                    <img src="../images/head/01-05.png" alt="">
+                                </div>
+                            </div>
+                            <div class='msg'>
+                                <div class="username">
+                                    <div class="username-show">
+                                        HENTA
+                                    </div>
+
+                                </div>
+                                <div class="identity">
+                                    <img src="../images/game/identity/五星上将.png" alt="">
+                                </div>
+                                <div class="score">2000金币</div>
+                            </div>
+                        </div>
+                        <div class="poker-container">
+                            <ul class="poker right_poker">
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <!-- 牌堆 -->
+                <div class="cards">
+                    <ul class="mid-cards">
+
+                    </ul>
+                </div>
+
+                <!-- 选项操作区域 -->
+                <div class="select-container">
+                    <!-- 背景选择 -->
+                    <div class="selects bgs-select">
+                        <div>
+                            <div class="selected bgs-selected">
+                                <img src="../images/bgs/game/01.png" alt="" id="bgs-selected">
+                            </div>
+                            <ul id="bgs-select-ul">
+                                <li class="bgs-select-item bgs-select-active"></li>
+                                <li class="bgs-select-item"></li>
+                                <li class="bgs-select-item"></li>
+                                <li class="bgs-select-item"></li>
+                                <li class="bgs-select-item"></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <!-- 卡牌选择-->
+                    <div class="selects  cards-select">
+                        <div>
+                            <div class="selected cards-selected">
+                                <img src="../images/game/card/01.png" alt="" id="cards-selected">
+                            </div>
+                            <ul id="cards-select-ul">
+                                <li class="cards-select-item cards-select-active"></li>
+                                <li class="cards-select-item"></li>
+                                <li class="cards-select-item"></li>
+                                <li class="cards-select-item"></li>
+                                <li class="cards-select-item"></li>
+                              
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <!-- 菜单选项 -->
+                <div class="options">
+                    <div class="setUp"></div>
+                    <div class="back">
+                        <a href="./welcome.html"><img src="../images/返回按钮.png" alt=""></a>
+                    </div>
+                </div>
+
+                <!-- 炸弹效果 -->
+                <div class="xiaoguo">
+                    <img src="" alt="">
+                </div>
+
+                <!-- 倍数 -->
+                <div class="bei">
+                    <img src="../images/倍数图标.png" alt="">
+                   
+                        <span>
+                            <span id="beishu">1</span>
+                            倍
+                        </span>
+                       
+                       
+                   
+                    
+                </div>
+
+
+
+                <div class="setUpMenu">
+                    <div class="close"></div>
+                    <div class="music">
+                        <div class="open"></div>
+                        <div class="down"></div>
+                    </div>
+                    <div class="sound">
+                        <div class="open"></div>
+                        <div class="down"></div>
+                        <audio class="bgsound" autoplay src="" id="bgsound">
+                        </audio>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="message again">
+                    请重新选牌哦!
+                </div>
+
+
+
+                <div class="desk left_desk">
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="desk middle_desk">
+                    <ul>
+
+                    </ul>
+                </div>
+                <div class="desk right_desk">
+                    <ul>
+
+                    </ul>
+
+                </div>
+
+
+
+
+            </div>
+
+            <div class="settlement">
+                <div class="vf"></div>
+                <div class="vfMsg">
+                    <div class="msgContainer">
+                        <div class="user">
+                            <div class="name">123</div>
+                            <div class="s">
+                                <div class="huobi"></div>
+                                <span class="gold"> 123</span>
+
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="name"></div>
+                            <div class="s">
+                                <div class="huobi"></div>
+                                <span class="gold"> 123</span>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <div class="name"></div>
+                            <div class="s">
+                                <div class="huobi"></div>
+                                <span class="gold"> 123</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="more-container">
+                    <a class="oneMore">再来一局</a>
+                    <a class="exit" href="./welcome.html">返回首页</a>
+                </div>
+            </div>
+
+            <div class="game-mask">
+            </div>
+
+
+
+
+        </div>
+
+
+
+        <div class="bgs">
+            <ul id="bgs-ul">
+                <li>
+                   
+                </li>
+                <li>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        <div class="video">
+
+        </div>
+
+
+        <div class="mask"></div>
+
+     
+    </section>
+   
+    <script src="../js/common/jquery-3.2.1.min.js"></script>
+
+    <script src="../js/game/event.js"></script>
+
+    <script src="../js/game/animate.js"></script>
+    <script src="../js/game/game.js"></script>
+    <script src="../js/game/http.js"></script>
+    <script src="../js/game/type.js"></script>
+    <script src="../js/game/AI.js"></script>
+</body>
+
+</html>

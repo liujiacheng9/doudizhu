@@ -1,0 +1,768 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    overflow:-Scroll;
+    overflow-x:hidden;
+    overflow-y:hidden;
+}
+ul {
+    display: flex;
+    justify-content: center;
+
+    li {
+        list-style: none;
+        width: 25px;
+        height: 200px;
+        border: 1px solid salmon;
+        position: relative;
+        z-index: 5;
+
+        img {
+            width: 200*0.618px;
+            height: 200px;
+            user-select: none;
+        }
+    }
+
+    .select {
+        top: -60px;
+    }
+}
+
+.container {
+    width: 100%;
+    height: 900px;
+    position: relative;
+    background-image: url(../images/wallhaven-136x99_1920x1080.png);
+    background-repeat: no-repeat;
+
+    // background-size: cover;
+    .left {
+        position: absolute;
+        width: 600px;
+        height: 400px;
+        background-color: red;
+        // top: 50px;
+        left: 20px;
+        transform: translate(0, -200px) rotate(90deg);
+        transform-origin: left bottom;
+
+        .left_poker {
+            position: absolute;
+            width: 600px;
+            height: 200px;
+            background-color: black;
+            top: 200px;
+        }
+    }
+
+    .middle {
+        position: absolute;
+        width: 600px;
+        height: 400px;
+        background-color: red;
+        top: 450px;
+        left: 700px;
+
+        .middle_poker {
+            position: absolute;
+            width: 600px;
+            height: 200px;
+            background-color: black;
+            top: 200px;
+        }
+    }
+
+    .right {
+        position: absolute;
+        width: 600px;
+        height: 400px;
+        background-color: red;
+        // bottom: 50px;
+        left: 1500px;
+        transform: translate(0, 750px) rotate(-90deg);
+        transform-origin: left top;
+
+        .right_poker {
+            position: absolute;
+            width: 600px;
+            height: 200px;
+            background-color: black;
+            top: 200px;
+        }
+    }
+
+    .remain {
+        position: absolute;
+        width: 150*3+5px;
+        height: 200px;
+        background-color: red;
+        top: 0;
+        left: 750px;
+
+        .remain_poker {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+
+            li {
+                width: 200*0.618px;
+                height: 200px;
+
+            }
+        }
+    }
+
+    .left_pic {
+        position: absolute;
+        width: 300px;
+        height: 120px;
+        top: 50px;
+        left: 50px;
+        // background-color: blue;
+
+        .head {
+            width: 120px;
+            height: 120px;
+            background-color: red;
+            float: left;
+        }
+
+        .msg {
+            width: 180px;
+            height: 120px;
+            // background-color: #fff;
+            float: left;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+
+            .username {
+                font-size: 20px;
+                line-height: 35px;
+                text-align: center;
+                width: 140px;
+                height: 35px;
+                margin: 5px auto;
+                padding: 0 10px 0 10px;
+                // border: 1px solid black;
+                background-color: rgba(0, 0, 0, .3);
+                color: white;
+                box-shadow: 0px 0px 10px 0px white inset;
+                border-radius: 50px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .score {
+                font-size: 20px;
+                line-height: 35px;
+                // text-align: center;
+                width: 110px;
+                height: 35px;
+                margin: 5px auto;
+                padding: 0 0 0 50px;
+                background-image: url(../images/bean.png);
+                background-size: 35px;
+                background-repeat: no-repeat;
+                background-position: 10px 2px;
+                background-color: rgba(0, 0, 0, .3);
+                color: white;
+                box-shadow: 0px 0px 10px 0px white inset;
+                border-radius: 50px;
+            }
+        }
+    }
+
+    .middle_pic {
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        top: 650px;
+        left: 500px;
+        // background-color: blue;
+
+        .head {
+            width: 120px;
+            height: 120px;
+            background-color: red;
+            margin: 0 auto;
+        }
+
+        .username {
+            font-size: 20px;
+            line-height: 35px;
+            text-align: center;
+            width: 140px;
+            height: 35px;
+            margin: 5px auto;
+            padding: 0 10px 0 10px;
+            background-color: rgba(0, 0, 0, .3);
+            color: white;
+            box-shadow: 0px 0px 10px 0px white inset;
+            border-radius: 50px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .score {
+            font-size: 20px;
+            line-height: 35px;
+            // text-align: center;
+            width: 110px;
+            height: 35px;
+            margin: 5px auto;
+            padding: 0 0 0 50px;
+            background-image: url(../images/bean.png);
+            background-size: 35px;
+            background-repeat: no-repeat;
+            background-position: 10px 2px;
+            background-color: rgba(0, 0, 0, .3);
+            color: white;
+            box-shadow: 0px 0px 10px 0px white inset;
+            border-radius: 50px;
+        }
+    }
+
+    .right_pic {
+        position: absolute;
+        width: 300px;
+        height: 120px;
+        top: 780px;
+        left: 1570px;
+        // background-color: blue;
+
+        .head {
+            width: 120px;
+            height: 120px;
+            background-color: red;
+            float: left;
+        }
+
+        .msg {
+            width: 180px;
+            height: 120px;
+            // background-color: #fff;
+            float: left;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+
+            .username {
+                font-size: 20px;
+                line-height: 35px;
+                text-align: center;
+                width: 140px;
+                height: 35px;
+                margin: 5px auto;
+                padding: 0 10px 0 10px;
+                background-color: rgba(0, 0, 0, .3);
+                color: white;
+                box-shadow: 0px 0px 10px 0px white inset;
+                border-radius: 50px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            .score {
+                font-size: 20px;
+                line-height: 35px;
+                // text-align: center;
+                width: 110px;
+                height: 35px;
+                margin: 5px auto;
+                padding: 0 0 0 50px;
+                background-image: url(../images/bean.png);
+                background-size: 35px;
+                background-repeat: no-repeat;
+                background-position: 10px 2px;
+                background-color: rgba(0, 0, 0, .3);
+                color: white;
+                box-shadow: 0px 0px 10px 0px white inset;
+                border-radius: 50px;
+            }
+        }
+    }
+}
+
+.button_container {
+    width: 600px;
+    height: 200px;
+
+    .robLandlord {
+        position: absolute;
+        top: 0;
+        pointer-events: none;
+        opacity: 0;
+        width: 600px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+
+        div:nth-child(1) {
+            background-color: #fff;
+            width: 84px;
+            height: 95px;
+            display: flex;
+            justify-content: center;
+        }
+
+        div:nth-child(2) {
+            background-color: #fff;
+            width: 160px;
+            height: 95px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        div:nth-child(3) {
+            background-color: #fff;
+            width: 120px;
+            height: 95px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .multiple {
+        position: absolute;
+        top: 0;
+        width: 600px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        pointer-events: none;
+        opacity: 0;
+
+        div:nth-child(1) {
+            background-color: #fff;
+            width: 84px;
+            height: 95px;
+            display: flex;
+            justify-content: center;
+        }
+
+        div:nth-child(2) {
+            background-color: #fff;
+            width: 160px;
+            height: 95px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        div:nth-child(3) {
+            background-color: #fff;
+            width: 120px;
+            height: 95px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div:nth-child(4) {
+            background-color: #fff;
+            width: 120px;
+            height: 95px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .playCard {
+        position: absolute;
+        top: 0;
+        width: 600px;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        pointer-events: none;
+        opacity: 0;
+
+        div:nth-child(1) {
+            background-color: #fff;
+            width: 84px;
+            height: 95px;
+            display: flex;
+            justify-content: center;
+        }
+
+        div:nth-child(2) {
+            background-color: #fff;
+            width: 160px;
+            height: 95px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        div:nth-child(3) {
+            background-color: #fff;
+            width: 120px;
+            height: 95px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
+
+.timer1,
+.timer2,
+.timer3 {
+    background-image: url(../images/倒计时.png);
+    text-align: center;
+    line-height: 98px;
+    font-size: 35px;
+
+}
+
+.back {
+    position: absolute;
+    top: 0;
+    left: 600px;
+    width: 75px;
+    height: 56px;
+    // background-image: url(../images/返回按钮.png);
+}
+
+.setUp {
+    position: absolute;
+    top: 0;
+    left: 1270px;
+    width: 47px;
+    height: 60px;
+    background-image: url(../images/设置按钮.png);
+}
+
+.bei {
+    position: absolute;
+    top: 870px;
+    left: 860px;
+    width: 250px;
+    height: 60px;
+    // border: 1px solid salmon;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, .3);
+    color: white;
+
+    img {
+        vertical-align: top;
+
+    }
+
+    span {
+        width: 150px;
+        height: 60px;
+        display: inline-block;
+        font-size: 30px;
+        line-height: 60px;
+        text-align: center;
+    }
+}
+
+.setUpMenu {
+    display: none;
+    width: 644px;
+    height: 354px;
+    background-image: url(../images/设置框.png);
+    position: absolute;
+    top: 200px;
+    left: 650px;
+    z-index: 10;
+    .close {
+        position: absolute;
+        top: 2px;
+        left: 579px;
+        width: 60px;
+        height: 60px;
+        background-color: #fff;
+        opacity: 0;
+    }
+
+    .music {
+        width: 115px;
+        height: 42px;
+        position: absolute;
+        top: 155px;
+        left: 430px;
+
+        div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 115px;
+            height: 42px;
+        }
+
+        .open {
+            display: block;
+            background-image: url(../images/设置1.png);
+        }
+
+        .down {
+            display: none;
+            background-image: url(../images/设置2.png);
+        }
+    }
+
+    .sound {
+        width: 115px;
+        height: 42px;
+        position: absolute;
+        top: 230px;
+        left: 430px;
+
+        div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 115px;
+            height: 42px;
+        }
+
+        .open {
+            display: block;
+            background-image: url(../images/设置1.png);
+        }
+
+        .down {
+            display: none;
+            background-image: url(../images/设置2.png);
+        }
+    }
+}
+
+.settlement {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 210px;
+    width: 1500px;
+    height: 800px;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, .8);
+
+    .vf {
+        width: 1000px;
+        height: 300px;
+        background-color: #fff;
+        margin: 0 auto;
+    }
+
+    .vfMsg {
+        width: 1000px;
+        height: 400px;
+        background-color: rgba(29, 37, 62, .8);
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .msgContainer {
+            border: 1px solid black;
+            width: 600px;
+            height: 300px;
+            background-color: rgba(44, 58, 74, 1);
+            border-radius: 5px;
+            overflow: hidden;
+
+            >div {
+                width: 600px;
+                height: 100px;
+                display: flex;
+                border-bottom: 1px solid black;
+
+                >div {
+                    text-align: center;
+                    line-height: 100px;
+                    font-size: 20px;
+                }
+
+                .name {
+
+                    width: 300px;
+                    height: 100px;
+                    // background-color: green;
+                }
+
+                .s {
+                    width: 300px;
+                    height: 100px;
+                    // background-color: rgb(15, 67, 110);
+                    background-image: url(../images/bean.png);
+                    background-repeat: no-repeat;
+                    background-position: left center;
+                }
+            }
+        }
+
+    }
+
+    .oneMore {
+        width: 1000px;
+        height: 100px;
+        background-color: green;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .closeVF {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-image: url(../images/关闭按钮.png);
+        background-size: cover;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+.left_desk {
+    position: absolute;
+    height: 200px;
+    top: 180px;
+    left: 280px;
+    display: none;
+
+    >ul {
+        height: 200px;
+        display: flex;
+        justify-content: flex-start;
+
+        >li {
+            width: 35px;
+            height: 200px;
+            background-color: #fff;
+
+            >img {
+                width: 200*0.618px;
+                height: 200px;
+            }
+        }
+    }
+
+}
+
+.middle_desk {
+    position: absolute;
+    height: 200px;
+    top: 400px;
+    left: 850px;
+    display: none;
+
+    >ul {
+        height: 200px;
+        display: flex;
+        justify-content: center;
+
+        >li {
+            width: 35px;
+            height: 200px;
+            background-color: #fff;
+
+            >img {
+                width: 200*0.618px;
+                height: 200px;
+            }
+        }
+    }
+
+}
+
+.right_desk {
+    position: absolute;
+    height: 200px;
+    top: 180px;
+    right: 370px;
+    display: none;
+
+    >ul {
+        height: 200px;
+        display: flex;
+        justify-content: flex-end;
+
+        >li {
+            width: 35px;
+            height: 200px;
+            background-color: #fff;
+
+            >img {
+                width: 200*0.618px;
+                height: 200px;
+            }
+        }
+    }
+
+}
+
+.again{
+    position: absolute;
+    top: 270px;
+    left: 880px;
+    width: 200px;
+    height: 80px;
+    background-color: #fff;
+    opacity: 0;
+    // animation: show 2s linear 1 forwards;
+    
+}
+
+@keyframes show{
+    0%{
+        opacity: 0;
+    }50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.xiaoguo{
+    position: absolute;
+    top: 50px;
+    left: 0;
+    z-index:10;
+    width: 100%;
+    opacity:0;
+    left: 100%;
+   
+    // animation: show1 3s linear 1;
+    >img{
+        width: 100%; 
+    }
+}
+.active{
+    animation: show1 3s linear 1;
+}
+@keyframes show1 {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    20%,80% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}

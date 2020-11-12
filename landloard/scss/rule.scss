@@ -1,0 +1,23 @@
+@font-face{
+    font-family: moxie;
+    src: url('../fonts/01.ttf')
+}
+
+
+@mixin btn($p,$w,$h,$c) {
+    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+   
+    // cursor: pointer;
+
+    padding: $p;
+    width: $w;
+    height: $h;
+    color:$c;
+    border: 1px solid $c;
+    
+}

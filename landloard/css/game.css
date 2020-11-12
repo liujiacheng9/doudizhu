@@ -1,0 +1,1146 @@
+@charset "UTF-8";
+@font-face {
+  font-family: moxie;
+  src: url("../fonts/01.ttf");
+}
+
+@keyframes timerRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  20% {
+    transform: rotate(180deg);
+  }
+  40% {
+    transform: rotate(90deg);
+  }
+  60% {
+    transform: rotate(270deg);
+  }
+  80% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes showBei {
+  0% {
+    opacity: .5;
+    box-shadow: 0px 0px 0px #83D2FB;
+  }
+  100% {
+    opacity: 1;
+    box-shadow: 0px 0px 20px #1296DB;
+  }
+}
+
+@keyframes messageShow {
+  0% {
+    width: 0px;
+  }
+  50% {
+    width: 200px;
+  }
+  80% {
+    width: 200px;
+  }
+  100% {
+    width: 0px;
+  }
+}
+
+@keyframes cutscenes {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes cutscenes02 {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: moxie;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  -webkit-user-select: none;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  cursor: url(../images/ico/01.ico), auto;
+}
+
+.container .container-show {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.container .container-show .game {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.container .container-show .game .player {
+  position: absolute;
+  width: 900px;
+  height: 400px;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.container .container-show .game .player .player-played {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+}
+
+.container .container-show .game .player .player-played ul {
+  display: flex;
+  justify-content: start;
+  min-width: 400px;
+  height: 100%;
+  background: blue;
+}
+
+.container .container-show .game .player .player-played ul li {
+  list-style: none;
+  width: 15px;
+  height: 100%;
+  z-index: 5;
+  transition: .5s;
+}
+
+.container .container-show .game .player .player-played ul li img {
+  border-radius: 5px;
+  border: 1px solid red;
+  width: 123.6px;
+  height: 200px;
+  user-select: none;
+  transition-duration: .5s;
+}
+
+.container .container-show .game .player .player-options {
+  width: 100%;
+  height: 100px;
+}
+
+.container .container-show .game .player .player-options .button_container {
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  position: relative;
+}
+
+.container .container-show .game .player .player-options .button_container .timer-container {
+  width: 100px;
+  height: 100px;
+  position: relative;
+}
+
+.container .container-show .game .player .player-options .button_container .timer-container .timer-circle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../images/倒计时.png) no-repeat;
+  background-size: 100% 100%;
+  animation: timerRotate alternate infinite 10s;
+}
+
+.container .container-show .game .player .player-options .button_container .timer-container .timer1,
+.container .container-show .game .player .player-options .button_container .timer-container .timer2,
+.container .container-show .game .player .player-options .button_container .timer-container .timer3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #6CB0BF;
+  font-size: 35px;
+}
+
+.container .container-show .game .player .player-options .button_container .robLandlord {
+  top: 0;
+  pointer-events: none;
+  opacity: 0;
+  border-radius: 10px;
+  min-width: 400px;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0px 15px;
+  align-items: center;
+}
+
+.container .container-show .game .player .player-options .button_container .robLandlord .landloard {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 70px;
+  height: 43.26px;
+  background-size: 100% 100%;
+  font-weight: bold;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  width: 70px;
+  height: 20px;
+  color: #6CB0BF;
+  border: 1px solid #6CB0BF;
+}
+
+.container .container-show .game .player .player-options .button_container .multiple {
+  position: absolute;
+  top: 0;
+  width: 400px;
+  height: 100px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0px 15px;
+  align-items: center;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.container .container-show .game .player .player-options .button_container .multiple .doubles {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  width: 70px;
+  height: 20px;
+  color: #6CB0BF;
+  border: 1px solid #6CB0BF;
+}
+
+.container .container-show .game .player .player-options .button_container .playCard {
+  position: absolute;
+  top: 0;
+  width: 400px;
+  height: 100px;
+  display: flex;
+  border-radius: 10px;
+  pointer-events: none;
+  opacity: 0;
+  justify-content: space-around;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0px 15px;
+  align-items: center;
+}
+
+.container .container-show .game .player .player-options .button_container .playCard .plays {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  width: 70px;
+  height: 20px;
+  color: #6CB0BF;
+  border: 1px solid #6CB0BF;
+}
+
+.container .container-show .game .player .player-info {
+  width: 100%;
+  height: 200px;
+  display: flex;
+}
+
+.container .container-show .game .player .player-info .details {
+  width: 200px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.container .container-show .game .player .player-info .details .head {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.container .container-show .game .player .player-info .details .head .head-circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: url("../images/head/head-circle/301.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .player .player-info .details .head .head-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  transition-duration: .5s;
+  overflow: hidden;
+}
+
+.container .container-show .game .player .player-info .details .head .head-icon > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.container .container-show .game .player .player-info .details .head:hover .head-icon > img {
+  transform: scale(1.1);
+  transition-duration: .5s;
+}
+
+.container .container-show .game .player .player-info .details .msg {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.container .container-show .game .player .player-info .details .msg .username {
+  font-size: 20px;
+  line-height: 35px;
+  text-align: center;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  background: url("../images/game/info02.png") no-repeat;
+  background-size: 100% 100%;
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 5px 5px;
+}
+
+.container .container-show .game .player .player-info .details .msg .username .username-show {
+  width: 100%;
+  height: 100%;
+  background: url("../images/game/info.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .player .player-info .details .msg .score {
+  font-size: 20px;
+  line-height: 35px;
+  min-width: 100px;
+  height: 35px;
+  background-repeat: no-repeat;
+  background-position: 10px 2px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .container-show .game .player .player-info .details .msg .identity {
+  width: 110px;
+}
+
+.container .container-show .game .player .player-info .details .msg .identity > img {
+  width: 100%;
+}
+
+.container .container-show .game .player .player-info .poker {
+  display: flex;
+  justify-content: start;
+  min-width: 600px;
+  position: relative;
+}
+
+.container .container-show .game .player .player-info .poker li {
+  list-style: none;
+  width: 25px;
+  height: 200px;
+  z-index: 5;
+  transition: .5s;
+}
+
+.container .container-show .game .player .player-info .poker li img {
+  position: absolute;
+  border-radius: 5px;
+  width: 123.6px;
+  height: 200px;
+  user-select: none;
+}
+
+.container .container-show .game .player .player-info .poker .select {
+  transform: translateY(-60px);
+}
+
+.container .container-show .game .p2 {
+  left: 0;
+  top: 30%;
+  transform: rotateZ(90deg) translateY(50%);
+}
+
+.container .container-show .game .p2 .head-circle {
+  background: url("../images/head/head-circle/304.png") no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+.container .container-show .game .p3 {
+  right: 0;
+  top: 20%;
+  transform: rotateZ(-90deg) translateY(50%);
+}
+
+.container .container-show .game .p3 .head-circle {
+  background: url("../images/head/head-circle/402.png") no-repeat !important;
+  background-size: 100% 100% !important;
+}
+
+.container .container-show .game .left_desk {
+  top: 50%;
+  transform: translateY(-50%);
+  left: 250px;
+  transform: rotateZ(90deg);
+}
+
+.container .container-show .game .right_desk {
+  top: 30%;
+  transform: translateY(-50%);
+  right: 320px;
+  transform: rotateZ(-90deg);
+}
+
+.container .container-show .game .middle_desk {
+  bottom: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.container .container-show .game .desk {
+  position: absolute;
+  height: 100px;
+  width: 200px;
+  z-index: -1;
+}
+
+.container .container-show .game .desk > ul {
+  height: 100px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.container .container-show .game .desk > ul > li {
+  width: 35px;
+  height: 100px;
+  background-color: #fff;
+}
+
+.container .container-show .game .desk > ul > li > img {
+  width: 61.8px;
+  height: 100px;
+}
+
+.container .container-show .game .cards {
+  width: 108.15px;
+  height: 175px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+}
+
+.container .container-show .game .cards .mid-cards {
+  width: 100%;
+  height: 100%;
+  transition-duration: .5s;
+  position: absolute;
+}
+
+.container .container-show .game .cards .mid-cards > li {
+  transition-duration: .5s;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("../images/game/card/01.png") no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid #C7A896;
+}
+
+.container .container-show .game .select-container {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  min-width: 250px;
+  display: flex;
+  z-index: 20;
+  justify-content: space-between;
+}
+
+.container .container-show .game .select-container .selects > div {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.container .container-show .game .select-container .selects > div > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  transition-duration: .5s;
+  border-radius: 3px;
+}
+
+.container .container-show .game .select-container .selects > div > div > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.container .container-show .game .select-container .selects > div > ul {
+  width: 100%;
+  height: 500%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: block;
+  transition-duration: .5s;
+  transform: translateY(-110%);
+}
+
+.container .container-show .game .select-container .selects > div > ul > li {
+  border: none;
+  border-radius: 5px;
+  opacity: .5;
+  transition-duration: .5s;
+}
+
+.container .container-show .game .select-container .selects > div > ul > li:hover {
+  opacity: 1;
+}
+
+.container .container-show .game .select-container .bgs-select {
+  width: 150px;
+  height: 92.7px;
+}
+
+.container .container-show .game .select-container .bgs-select ul > li {
+  width: 100%;
+  height: 20%;
+}
+
+.container .container-show .game .select-container .bgs-select ul > li:nth-of-type(1) {
+  background: url("../images/bgs/game/01.png") no-repeat;
+  border: 1px solid #F3E3F2;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .select-container .bgs-select ul > li:nth-of-type(2) {
+  background: url("../images/bgs/game/02.png") no-repeat;
+  border: 1px solid #DDAE85;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .select-container .bgs-select ul > li:nth-of-type(3) {
+  background: url("../images/bgs/game/03.png") no-repeat;
+  border: 1px solid #FFC057;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .select-container .bgs-select ul > li:nth-of-type(4) {
+  background: url("../images/bgs/game/04.png") no-repeat;
+  border: 1px solid #998878;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .select-container .bgs-select ul > li:nth-of-type(5) {
+  background: url("../images/bgs/game/05.png") no-repeat;
+  border: 1px solid #7898B1;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .select-container .bgs-select ul .bgs-select-active {
+  opacity: 1;
+}
+
+.container .container-show .game .select-container .cards-select {
+  width: 58.71px;
+  height: 95px;
+  z-index: 20;
+}
+
+.container .container-show .game .select-container .cards-select ul > li {
+  width: 100%;
+  height: 20%;
+}
+
+.container .container-show .game .select-container .cards-select ul > li:nth-of-type(1) {
+  background: url("../images/game/card/01.png") no-repeat;
+  border: 1px solid #363F4B;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .select-container .cards-select ul > li:nth-of-type(2) {
+  background: url("../images/game/card/02.png") no-repeat;
+  border: 1px solid #EBD2EA;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .select-container .cards-select ul > li:nth-of-type(3) {
+  background: url("../images/game/card/03.png") no-repeat;
+  border: 1px solid #A94747;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .select-container .cards-select ul > li:nth-of-type(4) {
+  background: url("../images/game/card/04.png") no-repeat;
+  border: 1px solid #BBE8FF;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .select-container .cards-select ul > li:nth-of-type(5) {
+  background: url("../images/game/card/05.png") no-repeat;
+  border: 1px solid #FDE59B;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .select-container .cards-select ul .cards-select-active {
+  opacity: 1;
+}
+
+.container .container-show .game .message {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 80px;
+  background: url("../images/game/msg_bg.png") no-repeat;
+  background-size: 100% 100%;
+  z-index: 22;
+  color: #4DCCE6;
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  align-items: center;
+  padding: 10px 0;
+  width: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.container .container-show .game .options {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  display: flex;
+  min-width: 200px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container .container-show .game .options > div {
+  opacity: .5;
+  transition-duration: .5s;
+}
+
+.container .container-show .game .options > div:hover {
+  opacity: 1;
+  transition-duration: .5s;
+}
+
+.container .container-show .game .options .back {
+  height: 45px;
+}
+
+.container .container-show .game .options .back a:hover {
+  cursor: url("../images/ico/01.ico"), auto;
+}
+
+.container .container-show .game .options .back img {
+  height: 100%;
+}
+
+.container .container-show .game .options .setUp {
+  width: 50px;
+  height: 50px;
+  background: url(../images/设置按钮.png) no-repeat;
+  background-size: 100% 100%;
+}
+
+.container .container-show .game .xiaoguo {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  opacity: 0;
+  left: 100%;
+}
+
+.container .container-show .game .xiaoguo > img {
+  width: 100%;
+}
+
+.container .container-show .game .remain {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  width: 283.1px;
+  height: 150px;
+}
+
+.container .container-show .game .remain .remain_poker {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  opacity: .5;
+  transition-duration: .5s;
+}
+
+.container .container-show .game .remain .remain_poker li {
+  width: 92.7px;
+  height: 150px;
+}
+
+.container .container-show .game .remain .remain_poker li > img {
+  width: 100%;
+  height: 100%;
+}
+
+.container .container-show .game .remain .remain_poker:hover {
+  transition-duration: .5s;
+  opacity: 1;
+}
+
+.container .container-show .game .setUpMenu {
+  display: none;
+  width: 644px;
+  height: 354px;
+  background-image: url(../images/设置框.png);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -90%);
+  z-index: 55;
+}
+
+.container .container-show .game .setUpMenu .close {
+  position: absolute;
+  top: 2px;
+  left: 579px;
+  width: 60px;
+  height: 60px;
+  background-color: #fff;
+  opacity: 0;
+}
+
+.container .container-show .game .setUpMenu .music {
+  width: 115px;
+  height: 42px;
+  position: absolute;
+  top: 155px;
+  left: 430px;
+}
+
+.container .container-show .game .setUpMenu .music div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 115px;
+  height: 42px;
+}
+
+.container .container-show .game .setUpMenu .music .open {
+  display: block;
+  background-image: url(../images/设置1.png);
+}
+
+.container .container-show .game .setUpMenu .music .down {
+  display: none;
+  background-image: url(../images/设置2.png);
+}
+
+.container .container-show .game .setUpMenu .sound {
+  width: 115px;
+  height: 42px;
+  position: absolute;
+  top: 230px;
+  left: 430px;
+}
+
+.container .container-show .game .setUpMenu .sound div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 115px;
+  height: 42px;
+}
+
+.container .container-show .game .setUpMenu .sound .open {
+  display: block;
+  background-image: url(../images/设置1.png);
+}
+
+.container .container-show .game .setUpMenu .sound .down {
+  display: none;
+  background-image: url(../images/设置2.png);
+}
+
+.container .container-show .game .bei {
+  position: absolute;
+  top: 10px;
+  right: 20%;
+  width: 250px;
+  height: 60px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  animation: showBei 2s alternate infinite;
+  display: flex;
+  align-items: center;
+}
+
+.container .container-show .game .bei img {
+  width: 40px;
+  height: 40px;
+  margin-left: 20px;
+}
+
+.container .container-show .game .bei > span {
+  width: 150px;
+  height: 60px;
+  display: inline-block;
+  font-size: 30px;
+  line-height: 60px;
+  text-align: center;
+  color: #1296DB;
+}
+
+.container .container-show .game .bei:hover {
+  transition-duration: .5s;
+  opacity: 1;
+}
+
+.container .container-show .settlement {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1500px;
+  height: 800px;
+  background: url("../images/game/01.jpg") no-repeat;
+  background-size: 100% 100%;
+  z-index: 60;
+  border-radius: 20px;
+}
+
+.container .container-show .settlement .vf {
+  width: 1000px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.container .container-show .settlement .vfMsg {
+  width: 1000px;
+  height: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .container-show .settlement .vfMsg .msgContainer {
+  width: 400px;
+  border-radius: 5px;
+}
+
+.container .container-show .settlement .vfMsg .msgContainer > div {
+  margin-top: 20px;
+  width: 400px;
+  height: 61.8px;
+  display: flex;
+  background: url("../images/game/info02.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.container .container-show .settlement .vfMsg .msgContainer > div > div {
+  text-align: center;
+  line-height: 100px;
+  font-size: 20px;
+}
+
+.container .container-show .settlement .vfMsg .msgContainer > div .name {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: red;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.container .container-show .settlement .vfMsg .msgContainer > div .s {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: blue;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.container .container-show .settlement .vfMsg .msgContainer > div .s .huobi {
+  width: 50px;
+  height: 50px;
+  background: url("../images/game/bing.png") no-repeat;
+  background-size: 100% 100%;
+}
+
+.container .container-show .settlement .more-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .container-show .settlement .more-container .oneMore {
+  margin-right: 100px;
+  height: 100px;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  width: 70px;
+  height: 20px;
+  color: #78EEDE;
+  border: 1px solid #78EEDE;
+}
+
+.container .container-show .settlement .more-container .exit {
+  margin-left: 100px;
+  height: 100px;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  width: 70px;
+  height: 20px;
+  color: #8B2620;
+  border: 1px solid #8B2620;
+}
+
+.container .container-show .settlement .closeVF {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: url(../images/关闭按钮.png);
+  background-size: cover;
+  width: 60px;
+  height: 60px;
+}
+
+.container .container-show .game-mask {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  z-index: 50;
+}
+
+.container .bgs {
+  position: absolute;
+  width: 100%;
+  height: 500%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+}
+
+.container .bgs > ul {
+  display: block;
+  height: 100%;
+  width: 100%;
+  list-style: none;
+  transition-duration: .5s;
+}
+
+.container .bgs > ul > li {
+  height: 20%;
+  width: 100%;
+}
+
+.container .bgs > ul > li:nth-of-type(1) {
+  background: url(../images/bgs/game/01.png) no-repeat;
+  background-size: cover;
+}
+
+.container .bgs > ul > li:nth-of-type(2) {
+  background: url(../images/bgs/game/02.png) no-repeat;
+  background-size: cover;
+}
+
+.container .bgs > ul > li:nth-of-type(3) {
+  background: url(../images/bgs/game/03.png) no-repeat;
+  background-size: cover;
+}
+
+.container .bgs > ul > li:nth-of-type(4) {
+  background: url(../images/bgs/game/04.png) no-repeat;
+  background-size: cover;
+}
+
+.container .bgs > ul > li:nth-of-type(5) {
+  background: url(../images/bgs/game/05.png) no-repeat;
+  background-size: cover;
+}
+
+.container .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 4;
+}
+
+.container .cutscenes-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  animation: cutscenes02 5s 1;
+  animation-delay: 5s;
+  animation-fill-mode: forwards;
+}
+
+.container .cutscenes-container .cutscenes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.container .cutscenes-container .cutscenes .cutscenes-show {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+}
+
+.container .cutscenes-container .cutscenes .cutscenes-slide-container {
+  z-index: 5;
+  position: absolute;
+  top: 70%;
+  width: 100%;
+  height: 40px;
+}
+
+.container .cutscenes-container .cutscenes .cutscenes-slide-container .cutscenes-slide {
+  position: relative;
+  height: 100%;
+  width: 0%;
+  animation: cutscenes 5s 1;
+  animation-fill-mode: forwards;
+  background: linear-gradient(to right, #000000, #e74c3c);
+  border-radius: 5px;
+}
+
+.container .cutscenes-container .cutscenes .cutscenes-slide-container .cutscenes-slide .cutscenes-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  background: url("../images/icon/01.png") no-repeat;
+  background-size: cover;
+}
+
+.container .cutscenes-container .cutscenes .cutscenes-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+}
+
+.container .cutscenes-container .cutscenes .cutscenes-mask {
+  z-index: 4;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+/*# sourceMappingURL=game.css.map */

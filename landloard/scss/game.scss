@@ -1,0 +1,1331 @@
+@import './rule.scss';
+
+@keyframes timerRotate {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    20% {
+        transform: rotate(180deg)
+    }
+
+    40% {
+        transform: rotate(90deg)
+    }
+
+    60% {
+        transform: rotate(270deg)
+    }
+
+    80% {
+        transform: rotate(180deg)
+    }
+
+    100% {
+        transform: rotate(360deg)
+    }
+
+}
+
+@keyframes showBei{
+    0% {
+        opacity: .5;
+        box-shadow:  0px 0px 0px #83D2FB,
+    }
+
+    100% {
+       opacity: 1;
+       box-shadow:  0px 0px 20px #1296DB,
+    }
+}
+
+@keyframes messageShow {
+    0% {
+        width: 0px;
+    }
+
+    50% {
+        width: 200px;
+    }
+
+    80%{
+        width: 200px;
+    }
+
+    100% {
+        width: 0px;
+    }
+}
+
+@keyframes cutscenes{
+        0%{
+            width: 0%;
+        }100%{
+            width: 100%;
+        }
+}
+
+
+@keyframes cutscenes02
+{
+    0%{
+        transform: translateX(0%);
+    }
+
+    100%{
+        transform: translateX(100%);
+    }
+
+   
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: moxie;
+}
+
+ul {
+    list-style: none;
+}
+
+
+.container {
+    -webkit-user-select: none;
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    cursor:url(../images/ico/01.ico),auto;
+
+    .container-show {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+
+        .game {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+
+            //玩家基本样式
+            .player {
+                position: absolute;
+                width: 900px;
+                height: 400px;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+
+                .player-played {
+                    width: 100%;
+                    height: 150px;
+                    // background: red;
+                    display: flex;
+                    justify-content: center;
+
+                    ul {
+                        display: flex;
+                        justify-content: start;
+                        min-width: 400px;
+                        height: 100%;
+                        background: blue;
+
+                        li {
+                            list-style: none;
+                            width: 15px;
+                            height: 100%;
+                          
+                            z-index: 5;
+                           
+                            transition: .5s;
+
+                            img {
+                               
+                                border-radius: 5px;
+                                border: 1px solid red;
+                                width: 200*0.618px;
+                                height: 200px;
+                                user-select: none;
+                                transition-duration: .5s;
+                            }
+                        }
+                    }
+                }
+
+                .player-options {
+                    width: 100%;
+                    height: 100px;
+                    // background: blue;
+
+                    .button_container {
+                        // width: 600px;
+                        // height: 200px;
+                        display: flex;
+                        justify-content: center;
+
+                        $h: 100px;
+                        height: $h;
+                        position: relative;
+
+                     
+                      
+
+                        .timer-container {
+                            width: 100px;
+                            height: 100px;
+                            position: relative;
+
+
+                            .timer-circle {
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                background: url(../images/倒计时.png) no-repeat;
+                                background-size: 100% 100%;
+                                animation: timerRotate alternate infinite 10s;
+                            }
+
+                            .timer1,
+                            .timer2,
+                            .timer3 {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                color: #6CB0BF;
+                                font-size: 35px;
+
+
+                            }
+                        }
+
+
+                        .robLandlord {
+                            // position: absolute;
+                            top: 0;
+                            pointer-events: none;
+                            opacity: 0;
+                          
+                            border-radius: 10px;
+                            min-width: 400px;
+                            height: $h;
+                            display: flex;
+                            justify-content: space-around;
+                            background: rgba(0,0,0,.6);
+                            padding: 0px 15px;
+                            align-items: center;
+                            
+
+
+
+                            .landloard {
+                                display: block;
+                                display: flex;
+                                // align-items: center;
+                                justify-content: center;
+                                align-items: center;
+
+                                text-decoration: none;
+                                $w: 70px;
+                                width: $w;
+                                height: $w*0.618;
+                                // background: url('../images/game/btn01.png') no-repeat;
+                                background-size: 100% 100%;
+                              
+                                font-weight:bold;
+                                @include btn(10px, 70px, 20px, #6CB0BF)
+                              
+                                
+                                }
+                        }
+
+                        .multiple {
+                            position: absolute;
+                            top: 0;
+                            width: 400px;
+                            height: $h;
+                            display: flex;
+                            border-radius: 10px;
+                            justify-content: space-around;
+                            background: rgba(0,0,0,.6);
+                            padding: 0px 15px;
+                            align-items: center;
+                            pointer-events: none;
+                            opacity: 0;
+
+
+                            .doubles {
+                                @include btn(10px, 70px, 20px,  #6CB0BF)
+                            }
+                        }
+
+                        .playCard {
+                            position: absolute;
+                            top: 0;
+                            width: 400px;
+                            height: $h;
+                            display: flex;
+                            border-radius: 10px;
+                            pointer-events: none;
+                            opacity: 0;
+
+
+                            justify-content: space-around;
+                            background: rgba(0,0,0,.6);
+                            padding: 0px 15px;
+                            align-items: center;
+
+
+
+                            .plays {
+                                @include btn(10px, 70px, 20px,  #6CB0BF)
+                            }
+                        }
+                    }
+
+
+                }
+
+                .player-info {
+                    width: 100%;
+                    height: 200px;
+                    // background: green;
+                    display: flex;
+
+                    .details {
+
+                        width: 200px;
+                        height: 100%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+
+
+
+                        .head {
+                            width: 100px;
+                            height: 100px;
+
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            position: relative;
+
+                         
+
+                            .head-circle {
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                z-index: 1;
+                                background: url('../images/head/head-circle/301.png') no-repeat;
+                                background-size: 100% 100%;
+                            }
+
+
+                            .head-icon {
+                                width: 100*.8px;
+                                height: 100*.8px;
+                                border-radius: 100*0.8*0.5px;
+                                transition-duration: .5s;
+                        
+                                overflow: hidden;
+
+                                >img {
+                                    width: 100%;
+                                    height: 100%;
+                                    border-radius: 50%;
+                                }
+                            }
+
+                            &:hover .head-icon>img {
+                                transform: scale(1.1);
+                                transition-duration: .5s;
+                            }
+
+
+                        }
+
+
+                        .msg {
+                            display: flex;
+                            justify-content: center;
+                            flex-wrap: wrap;
+
+                            .username {
+                                font-size: 20px;
+                                line-height: 35px;
+                                text-align: center;
+                                $w: 100px;
+                                width: $w;
+                                height: $w*0.4;
+                                // margin: 5px auto;
+                                line-height: $w*0.4;
+
+                                background: url('../images/game/info02.png') no-repeat;
+                                background-size: 100% 100%;
+                                color: black;
+
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+
+                                padding: 5px 5px;
+
+                                .username-show {
+                                    width: 100%;
+                                    height: 100%;
+                                    background: url('../images/game/info.png') no-repeat;
+                                    background-size: 100% 100%;
+                                }
+                            }
+
+                            .score {
+                                font-size: 20px;
+                                line-height: 35px;
+                                min-width: 100px;
+                                height: 35px;
+
+
+                                background-repeat: no-repeat;
+                                background-position: 10px 2px;
+                                background-color: rgba(0, 0, 0, .3);
+                                color: white;
+                                border-radius: 50px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                            }
+
+                            .identity {
+                                width: 110px;
+
+                                >img {
+                                    width: 100%;
+                                }
+                            }
+
+                        }
+
+
+                    }
+
+                    .poker {
+                        display: flex;
+                        justify-content: start;
+                        min-width: 600px;
+                        position: relative;
+
+                        li {
+                            list-style: none;
+                            width: 25px;
+                            height: 200px;
+
+                            // position: relative;
+                            z-index: 5;
+                          
+                            transition: .5s;
+
+                            img {
+                                position: absolute;
+                                border-radius: 5px;
+                                // border: 1px solid red;
+                                width: 200*0.618px;
+                                height: 200px;
+                                user-select: none;
+                            }
+                        }
+
+                        .select {
+                            transform: translateY(-60px);
+                            // top: -60px;
+
+                        }
+
+                    }
+
+                }
+            }
+
+            .p2 {
+                left: 0;
+                top: 30%;
+                transform: rotateZ(90deg) translateY(50%);
+
+                .head-circle {       
+                    background: url('../images/head/head-circle/304.png') no-repeat !important;
+                    background-size: 100% 100% !important;
+                }
+
+            }
+
+            .p3 {
+                right: 0;
+                top: 20%;
+                transform: rotateZ(-90deg) translateY(50%);
+
+                .head-circle {       
+                    background: url('../images/head/head-circle/402.png') no-repeat!important;
+                    background-size: 100% 100% !important;
+                }
+            }
+
+            .left_desk {
+
+                top: 50%;
+                transform: translateY(-50%);
+                left: 250px;
+
+                transform: rotateZ(90deg);
+                // display: none;
+            }
+
+            .right_desk {
+
+                top: 30%;
+
+                transform: translateY(-50%);
+                right: 320px;
+
+                transform: rotateZ(-90deg);
+
+                // display: none;
+            }
+
+
+
+            .middle_desk {
+                bottom: 300px;
+                left: 50%;
+                transform: translateX(-50%);
+
+
+
+                // display: none;
+            }
+
+
+
+
+            .desk {
+                position: absolute;
+                height: 100px;
+                width: 200px;
+                z-index: -1;
+
+                >ul {
+                    height: 100px;
+                    display: flex;
+                    justify-content: flex-start;
+
+                    >li {
+                        width: 35px;
+                        height: 100px;
+                        background-color: #fff;
+
+                        >img {
+                            width: 100*0.618px;
+                            height: 100px;
+                        }
+                    }
+                }
+            }
+
+            //牌堆
+            .cards {
+                $h: 175px;
+                width: $h*0.618;
+                height: $h;
+                position: absolute;
+                top: 25%;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 50;
+
+                .mid-cards {
+                    width: 100%;
+                    height: 100%;
+                    transition-duration: .5s;
+                  
+                    position: absolute;
+   
+
+                    >li {
+                        transition-duration: .5s;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        background: url('../images/game/card/01.png') no-repeat;
+                        background-size: cover;
+                        border-radius: 10px;
+                        box-sizing: border-box;
+                        border: 1px solid #C7A896;
+
+                    }
+
+                }
+
+            }
+
+
+            //个性化设置区域
+            .select-container{
+              position: absolute;
+              top: 0;
+              left: 20%;
+              min-width: 250px;
+              display: flex;
+              z-index: 20;
+              justify-content: space-between;
+                .selects{
+                  
+                  
+    
+                    >div{
+                        width: 100%;
+                        height: 100%;
+                        position: relative;
+    
+                        >div {
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            z-index: 1;
+                            width: 100%;
+                            height: 100%;
+                          
+                            transition-duration: .5s;
+                            border-radius: 3px;
+                            // border: 1px solid #F3E3F2;
+                            >img {
+                                width: 100%;
+                                height: 100%;
+                                border-radius: 5px;
+                            }
+    
+                        }
+    
+                        >ul {
+                            width: 100%;
+                            height: 500%;
+                            position: absolute;
+                            z-index: 2;
+                            top: 0;
+                            left: 0;
+                            display: block;
+                            transition-duration: .5s;
+                            transform: translateY(-110%);
+    
+    
+    
+                            >li {
+    
+                                border: none;
+                                // width: 100%;
+                                // height: $w*0.618;
+                                border-radius: 5px;
+                                opacity: .5;
+                                transition-duration: .5s;
+                               
+    
+                             
+                            }
+    
+                            >li:hover {
+                                opacity: 1;
+                            }
+    
+                            
+                        }
+    
+                        
+                    }
+                }
+                // 背景选中
+                .bgs-select {          
+                  
+                    $w: 150px;
+                    width: $w;
+                    height: $w*0.618;
+                
+                    ul{
+                        >li{
+                               width: 100%;
+                             height: 20%;
+                           
+                             &:nth-of-type(1) {
+                                background: url('../images/bgs/game/01.png') no-repeat;
+                                border: 1px solid #F3E3F2;
+                                background-size: 100% 100%;
+                            }
+    
+                            &:nth-of-type(2) {
+                                background: url('../images/bgs/game/02.png') no-repeat;
+                                border: 1px solid #DDAE85;
+                                background-size: 100% 100%;
+    
+                            }
+    
+                            &:nth-of-type(3) {
+                                background: url('../images/bgs/game/03.png') no-repeat;
+                                border: 1px solid#FFC057;
+                                background-size: 100% 100%;
+                            }
+    
+                            &:nth-of-type(4) {
+                                background: url('../images/bgs/game/04.png') no-repeat;
+                                border: 1px solid #998878;
+                                background-size: 100% 100%;
+                            }
+    
+                            &:nth-of-type(5) {
+                                background: url('../images/bgs/game/05.png') no-repeat;
+                                border: 1px solid #7898B1;
+                                background-size: 100% 100%;
+                            }
+                        }
+    
+                        .bgs-select-active {
+                            opacity: 1;
+                        }
+                    }
+    
+    
+                }
+    
+                //卡片背景选择
+                .cards-select{
+                    
+                    $h: 95px;
+                    width: $h*0.618;
+                    height: $h;
+                    z-index: 20;
+    
+                    ul{
+                        >li{
+                               width: 100%;
+                             height: 20%;
+    
+                             &:nth-of-type(1) {
+                                background: url('../images/game/card/01.png') no-repeat;
+                                border: 1px solid #363F4B;
+                                background-size: 100% 100%;
+                            }
+    
+                            &:nth-of-type(2) {
+                                background: url('../images/game/card/02.png') no-repeat;
+                                border: 1px solid #EBD2EA;
+                                background-size: 100% 100%;
+    
+                            }
+    
+                            &:nth-of-type(3) {
+                                background: url('../images/game/card/03.png') no-repeat;
+                                border: 1px solid #A94747;
+                                background-size: 100% 100%;
+                            }
+    
+                            &:nth-of-type(4) {
+                                background: url('../images/game/card/04.png') no-repeat;
+                                border: 1px solid #BBE8FF;
+                                background-size: 100% 100%;
+                            }
+    
+                            &:nth-of-type(5) {
+                                background: url('../images/game/card/05.png') no-repeat;
+                                border: 1px solid #FDE59B;
+                                background-size: 100% 100%;
+                            }
+                        }
+                        .cards-select-active {
+                            opacity: 1;
+                        }
+                    }
+                }
+    
+            }
+
+          
+
+            //卡牌背景选中
+
+            //消息提示
+            .message {
+                position: absolute;
+                top: 40%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 200px;
+                height: 80px;
+                // padding: 25px;
+                background: url('../images/game/msg_bg.png') no-repeat;
+                background-size: 100% 100%;
+                // opacity: 0;
+                z-index: 22;
+                color: #4DCCE6;
+                // text-align: center;
+                display: flex;
+                justify-content: center;
+                font-size: 25px;
+                align-items: center;
+                padding:10px 0;
+                // animation: messageShow 2s infinite alternate;
+                // transition-duration: .5s;
+                width: 0px;
+                overflow: hidden;
+
+                text-overflow:ellipsis; //省略号显示
+                overflow:hidden;
+                white-space: nowrap;
+            }
+
+            // 选项设置
+            .options {
+                position: absolute;
+                right: 0;
+                top: 10px;
+                display: flex;
+                min-width: 200px;
+                justify-content: space-around;
+            
+                align-items: center;
+                
+
+                >div {
+                   
+                    opacity: .5;
+                    transition-duration: .5s;
+                    &:hover{
+                        opacity: 1;
+                        transition-duration: .5s;
+                    }
+                }
+
+                .back {
+                    height: 45px;
+
+                   
+
+                        a:hover{
+                            cursor: url('../images/ico/01.ico'), auto;
+                        }
+                    
+                    img {
+                        height: 100%;
+                    }
+                }
+
+                .setUp {
+                    width: 50px;
+                    height: 50px;
+                    background: url(../images/设置按钮.png) no-repeat;
+                    background-size: 100% 100%;
+                }
+
+              
+            }
+
+            //炸弹效果
+            .xiaoguo {
+                position: absolute;
+                top: 50px;
+                left: 0;
+                z-index: 10;
+                width: 100%;
+                opacity: 0;
+                left: 100%;
+
+                // animation: show1 3s linear 1;
+                >img {
+                    width: 100%;
+                }
+            }
+
+
+            //地主牌面展示
+            .remain {
+                $size: 150px;
+                top: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                position: absolute;
+                width: $size*0.618*3+5px;
+                height: $size;
+
+                .remain_poker {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    justify-content: space-around;
+                    opacity: .5;
+                    transition-duration: .5s;
+
+                    li {
+
+
+                        width: $size*0.618;
+                        height: $size;
+
+                        >img {
+                            width: 100%;
+                            height: 100%;
+                        }
+
+                    }
+
+                    &:hover{
+                        transition-duration: .5s;
+                        opacity: 1;
+
+                    }
+                }
+            }
+
+            //声音选项
+            .setUpMenu {
+                display: none;
+                width: 644px;
+                height: 354px;
+                background-image: url(../images/设置框.png);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -90%);
+                z-index: 55;
+
+                .close {
+                    position: absolute;
+                    top: 2px;
+                    left: 579px;
+                    width: 60px;
+                    height: 60px;
+                    background-color: #fff;
+                    opacity: 0;
+                }
+
+                .music {
+                    width: 115px;
+                    height: 42px;
+                    position: absolute;
+                    top: 155px;
+                    left: 430px;
+
+                    div {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 115px;
+                        height: 42px;
+                    }
+
+                    .open {
+                        display: block;
+                        background-image: url(../images/设置1.png);
+                       
+                    }
+
+                    .down {
+                        display: none;
+               
+                        background-image: url(../images/设置2.png);
+                    }
+                }
+
+                .sound {
+                    width: 115px;
+                    height: 42px;
+                    position: absolute;
+                    top: 230px;
+                    left: 430px;
+
+                    div {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 115px;
+                        height: 42px;
+                    }
+
+                    .open {
+                      
+                        display: block;
+                        background-image: url(../images/设置1.png);
+                    }
+
+                    .down {
+                      
+                        display: none;
+                        background-image: url(../images/设置2.png);
+                    }
+                }
+            }
+
+
+            //倍数设置
+            .bei {
+                position: absolute;
+                top: 10px;
+                // left: 860px;
+                right:  20%;
+                // transform: translateX(-50%);
+                width: 250px;
+                height: 60px;
+                // border: 1px solid salmon;
+                border-radius: 50px;
+                background-color: rgba(0, 0, 0, .3);
+                color: white;
+                // transition-duration: .5s;
+                animation: showBei 2s alternate infinite;
+   
+                display: flex;
+                align-items: center;
+                // justify-content: space-around;
+    
+                img {
+                    // vertical-align: middle;
+                    width: 40px;
+                    height:40px;
+                    margin-left: 20px;
+    
+                }
+    
+                >span {
+                    width: 150px;
+                    height: 60px;
+                    display: inline-block;
+                    font-size: 30px;
+                    line-height: 60px;
+                    text-align: center;
+                    color:#1296DB;
+                }
+
+                &:hover{
+                    transition-duration: .5s;
+                    opacity: 1;
+                }
+            }
+
+
+
+        }
+
+
+        .settlement {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1500px;
+            height: 800px;
+            background: url('../images/game/01.jpg') no-repeat;
+            background-size: 100% 100%;
+            z-index: 60;
+            border-radius: 20px;
+            // background-color: rgba(0, 0, 0, .8);
+
+            .vf {
+                width: 1000px;
+                height: 300px;
+                // background-color: #fff;
+                margin: 0 auto;
+            }
+
+            .vfMsg {
+                width: 1000px;
+                height: 400px;
+                // background-color: rgba(29, 37, 62, .8);
+                margin: 0 auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .msgContainer {
+                    // border: 1px solid black;
+                    width: 400px;
+                    // height: 300*0.618*3px;
+                    // background-color: rgba(44, 58, 74, 1);
+                    border-radius: 5px;
+                    // overflow: hidden;
+
+                    >div {
+                        margin-top: 20px;
+                        width: 400px;
+                        height: 100*0.618px;
+                        display: flex;
+                        // border-bottom: 1px solid black;
+                        background: url('../images/game/info02.png') no-repeat;
+                        background-size: 100% 100%;
+
+                        >div {
+                            text-align: center;
+                            line-height: 100px;
+                            font-size: 20px;
+                        }
+
+                        .name {
+                            width: 50%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: red;
+                            background: rgba(0, 0, 0, .5);
+
+                        }
+
+                        .s {
+                            width: 50%;
+                            height: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: blue;
+                            background: rgba(0, 0, 0, .5);
+
+                            .huobi {
+                                width: 50px;
+                                height: 50px;
+                                background: url('../images/game/bing.png') no-repeat;
+                                background-size: 100% 100%;
+                            }
+
+                        }
+                    }
+                }
+
+            }
+
+            .more-container {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                .oneMore {
+                    margin-right: 100px;
+                    height: 100px;
+                    @include btn(10px, 70px, 20px, #78EEDE)
+                }
+
+                .exit {
+                    margin-left: 100px;
+                    height: 100px;
+                    @include btn(10px, 70px, 20px, #8B2620)
+                }
+            }
+
+
+            .closeVF {
+                position: absolute;
+                top: 0;
+                right: 0;
+                background-image: url(../images/关闭按钮.png);
+                background-size: cover;
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+
+        .game-mask {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, .9);
+            display: none;
+            z-index: 50;
+        }
+
+
+
+    }
+
+
+    .bgs {
+        position: absolute;
+        width: 100%;
+        height: 500%;
+        top: 0;
+        left: 0;
+        z-index: 3;
+
+
+        >ul {
+            display: block;
+            height: 100%;
+            width: 100%;
+            list-style: none;
+            transition-duration: .5s;
+
+            >li {
+                height: 20%;
+                width: 100%;
+               
+
+                &:nth-of-type(1) {
+                    background: url(../images/bgs/game/01.png) no-repeat;
+                    background-size: cover;
+                }
+
+                &:nth-of-type(2) {
+                    background: url(../images/bgs/game/02.png) no-repeat;
+                    background-size: cover;
+
+                }
+
+                &:nth-of-type(3) {
+                    background: url(../images/bgs/game/03.png) no-repeat;
+                    background-size: cover;
+
+                }
+
+                &:nth-of-type(4) {
+                    background: url(../images/bgs/game/04.png) no-repeat;
+
+                    background-size: cover;
+
+                }
+
+                &:nth-of-type(5) {
+                    background: url(../images/bgs/game/05.png) no-repeat;
+                    background-size: cover;
+
+                }
+
+                // background-size: 100% 100%;
+            }
+
+
+        }
+
+    }
+
+    .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0,0, .4);
+        z-index: 4;
+
+    }
+
+    .cutscenes-container{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+       
+        // background: black;
+        z-index: 99;
+        .cutscenes{
+             position: relative;
+             width: 100%;
+             height: 100%;
+
+            .cutscenes-show{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 4;
+                // background: red;
+            }
+
+            .cutscenes-slide-container{
+                z-index: 5;
+                position: absolute;
+                top: 70%;
+                width: 100%;
+                // opacity: .6;
+                // border: 1px solid red;
+                height: 40px;
+
+                .cutscenes-slide{
+                    position: relative;
+                    // width: 100%;
+                    height: 100%;
+                    width: 0%;
+     
+
+                    animation: cutscenes 5s 1 ;
+
+                    animation-fill-mode:forwards;
+                    
+                    background: linear-gradient(to right,#000000,#e74c3c);
+                    border-radius: 5px;
+
+                    .cutscenes-icon{
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 40px;
+                        height: 40px;
+                        // transform: translateX(100%);
+                        background: url('../images/icon/01.png') no-repeat;
+                        background-size: cover;
+                    }
+                }
+            }
+
+            .cutscenes-video{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 3;
+            }
+
+            .cutscenes-mask{
+                z-index:4;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,.5);
+            }
+
+        }
+      
+        animation: cutscenes02 5s 1 ;
+        animation-delay: 5s;
+        animation-fill-mode:forwards;
+
+      
+     
+    }
+   
+
+
+
+}

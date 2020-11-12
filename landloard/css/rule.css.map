@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,UAAU;EACN,WAAW,EAAE,KAAK;EAClB,GAAG,EAAE,sBAAsB",
+    "sources": [
+        "../scss/rule.scss"
+    ],
+    "names": [],
+    "file": "rule.css"
+}

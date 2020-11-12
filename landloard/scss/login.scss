@@ -1,0 +1,362 @@
+@import './rule.scss';
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes flash {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+html,
+body {
+    overflow: hidden;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    background: url('../images/bgs/05.jpg') no-repeat;
+    background-size: 100% 100%;
+    font-family: moxie;
+
+    cursor: url('../images/ico/01.ico'), auto;
+
+
+
+    position: relative;
+
+    .show {
+        $w: 350px;
+        width: $w;
+        height: $w;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9;
+        // background: white;
+
+
+
+        border: 1px dashed #02352E;
+
+        display: flex;
+        align-items: center;
+        border-radius: 70px;
+
+        form {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+
+            >div {
+                width: 100%;
+                display: flex;
+                // padding: 0 20px;
+                align-items: center;
+                justify-content: space-between;
+
+                >div {
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+
+            .input-container {
+                position: relative;
+                max-height: 40px;
+
+                input {
+                    border: none;
+                    outline: none;
+                    background: transparent;
+                    outline-style: none;
+                    height: 40px;
+                    font-size: 20px;
+                    width: 100%;
+
+                    cursor: pointer;
+
+                    // position: absolute;
+                    // top: 0;
+                    // z-index: 2;
+
+                    color: #78EEDE;
+
+                    &:hover {
+                        cursor: url('../images/ico/01.ico'), auto;
+                    }
+
+                    &:-internal-autofill-selected {
+                        // background: transparent;
+                        color: #78EEDE;
+
+                    }
+
+                 
+                    &:focus+.title::before {
+                        transform: translateY(-0.5em);
+                    }
+
+                    &:focus+.title::after {
+                        transform: translateY(0.5em);
+                    }
+
+
+                    &:focus+.title>div {
+                        transform: translateY(-100%);
+                    }
+
+                }
+
+                .title_active {
+                    transform: translateY(-100%);
+                }
+
+
+
+
+
+                .title {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    // opacity: 0;
+
+                    pointer-events: none;
+
+                    display: flex;
+
+                    $color: white;
+
+                    >div {
+
+                        height: 100%;
+                        display: block;
+                        line-height: 40px;
+                        transition-duration: .5s;
+                        font-size: 20px;
+                        color: #78EEDE;
+                    }
+
+                    &:before,
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        left: 0;
+                        z-index: -1;
+                        width: 100%;
+                        height: 2px;
+                        background: #D1E3E2;
+                        transition: transform 0.3s;
+                    }
+
+                    &::before {
+                        top: 0;
+                     
+                    }
+
+                    &::after {
+                        bottom: 0;
+                      
+                    }
+
+                    >div {
+                        display: flex;
+                        align-items: center;
+                        
+                    }
+
+                    .title-img {
+                        height: 100%;
+
+                        >img {
+                            height: 100%;
+                        }
+
+                    }
+                }
+
+
+
+            }
+
+
+            .input-code {
+                color: red;
+                width: 60%;
+            }
+
+            .date::-webkit-calendar-picker-indicator {
+                opacity: 0;
+            }
+
+
+
+            .btn-code {
+                cursor: url('../images/ico/01.ico'), auto;
+                @include btn(10px, 70px, 20px, #78EEDE);
+            }
+
+            .btn-register {
+                cursor: url('../images/ico/01.ico'), auto;
+                @include btn(10px, 70px, 20px, #78E8DD);
+
+            }
+
+            .btn-login {
+                cursor: url('../images/ico/01.ico'), auto;
+                @include btn(10px, 70px, 20px, #E0C6A6);
+            }
+
+            .btn-back {
+                cursor: url('../images/ico/01.ico'), auto;
+                @include btn(10px, 70px, 20px, red);
+
+            }
+
+            .head-container {
+                position: relative;
+
+                .head {
+                    $size: 120px;
+                    width: $size;
+                    height: $size;
+                    border-radius: $size/2;
+                    overflow: hidden;
+                    // background: url("../images/head/01.png") no-repeat;
+                    // background-size: 100% 100%;
+
+                    >img {
+                        width: 100%;
+                        height: 100%;
+
+
+                    }
+                }
+
+                .btn-head {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    @include btn(5px, 70px, 20px, #963347);
+                    z-index: 2;
+
+
+                    opacity: .5;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+
+
+
+
+
+        }
+
+
+    }
+
+    .slogan-container {
+        position: absolute;
+        $w: 900px;
+        top: 0;
+        left: 10%;
+        width: $w;
+        z-index: 3;
+        transform: translateX(-50%);
+        user-select: none;
+
+        >.slogan {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+            >img {
+                width: 100%;
+            }
+
+            .link {
+                position: absolute;
+                height: 50%;
+                width: 100px;
+                top: 55%;
+                left: 55%;
+                transform: translateY(-50%);
+                // background: red;
+                cursor: pointer;
+
+                .link-shadow {
+                    height: 20px;
+                    width: 20px;
+                    padding: 5px;
+
+                    animation: flash 2s alternate infinite;
+                    box-shadow: 50px 50px 50px red;
+
+                }
+            }
+
+
+        }
+
+
+
+    }
+
+    .mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        background: rgba(0, 0, 0, .5);
+    }
+
+    .model {
+        position: absolute;
+        height: 70%;
+        // height: 50%;
+        user-select: none;
+
+        top: 50%;
+        z-index: 3;
+
+        >img {
+            height: 100%;
+        }
+    }
+
+    .model_01 {
+
+        transform: translate(-30%, -50%);
+    }
+
+    .model_02 {
+        right: 0;
+        transform: translate(10%, -50%);
+    }
+
+
+}

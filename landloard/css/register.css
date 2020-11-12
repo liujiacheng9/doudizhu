@@ -1,0 +1,250 @@
+@font-face {
+  font-family: moxie;
+  src: url("../fonts/01.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: url("../images/bgs/05.jpg") no-repeat;
+  background-size: 100% 100%;
+  font-family: moxie;
+  position: relative;
+  cursor: url("../images/ico/01.ico"), auto;
+}
+
+.container a:hover {
+  cursor: url("../images/ico/01.ico"), auto;
+}
+
+.container .show {
+  width: 700px;
+  height: 432.6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  border: 1px dashed #02352E;
+  display: flex;
+  align-items: center;
+  border-radius: 70px;
+}
+
+.container .show form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container .show form > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.container .show form > div > div {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.container .show form .input-container {
+  position: relative;
+  max-height: 40px;
+}
+
+.container .show form .input-container input {
+  border: none;
+  outline: none;
+  background: transparent;
+  outline-style: none;
+  height: 40px;
+  font-size: 20px;
+  width: 100%;
+  cursor: url("../images/ico/01.ico"), auto;
+  color: #78EEDE;
+}
+
+.container .show form .input-container input:focus + .title::before {
+  transform: translateY(-0.5em);
+}
+
+.container .show form .input-container input:focus + .title::after {
+  transform: translateY(0.5em);
+}
+
+.container .show form .input-container input:focus + .title > div {
+  transform: translateY(-100%);
+}
+
+.container .show form .input-container .title_active {
+  transform: translateY(-100%);
+}
+
+.container .show form .input-container .title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  display: flex;
+}
+
+.container .show form .input-container .title > div {
+  height: 100%;
+  display: block;
+  line-height: 40px;
+  transition-duration: .5s;
+  font-size: 20px;
+  color: #78EEDE;
+}
+
+.container .show form .input-container .title:before, .container .show form .input-container .title:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 2px;
+  background: #D1E3E2;
+  transition: transform 0.3s;
+}
+
+.container .show form .input-container .title::before {
+  top: 0;
+}
+
+.container .show form .input-container .title::after {
+  bottom: 0;
+}
+
+.container .show form .input-container .title > div {
+  display: flex;
+  align-items: center;
+}
+
+.container .show form .input-container .title .title-img {
+  height: 100%;
+}
+
+.container .show form .input-container .title .title-img > img {
+  height: 100%;
+}
+
+.container .show form .input-code {
+  color: red;
+  width: 60%;
+}
+
+.container .show form .date::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+.container .show form .btn-code {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  width: 70px;
+  height: 20px;
+  color: #78EEDE;
+  border: 1px solid #78EEDE;
+}
+
+.container .show form .btn-register {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  width: 70px;
+  height: 20px;
+  color: #78E8DD;
+  border: 1px solid #78E8DD;
+}
+
+.container .show form .btn-back {
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  width: 70px;
+  height: 20px;
+  color: red;
+  border: 1px solid red;
+}
+
+.container .show form .head-container {
+  position: relative;
+}
+
+.container .show form .head-container .head {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  overflow: hidden;
+}
+
+.container .show form .head-container .head > img {
+  width: 100%;
+  height: 100%;
+}
+
+.container .show form .head-container .btn-head {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 5px;
+  width: 70px;
+  height: 20px;
+  color: #963347;
+  border: 1px solid #963347;
+  z-index: 2;
+  opacity: .5;
+}
+
+.container .show form .head-container .btn-head:hover {
+  opacity: 1;
+}
+
+.container .mask {
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.container > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/*# sourceMappingURL=register.css.map */

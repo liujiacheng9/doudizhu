@@ -1,0 +1,145 @@
+@font-face {
+  font-family: moxie;
+  src: url("../fonts/01.ttf");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  background: red;
+  font-family: moxie;
+  background: url("../images/bgs/06.jpg") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  cursor: url("../images/ico/01.ico"), auto;
+}
+
+.container .show {
+  width: 1000px;
+  height: 618px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container .show > div {
+  width: 100%;
+  min-height: 550px;
+}
+
+.container .show > div table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: center;
+  user-select: none;
+}
+
+.container .show > div table .title {
+  padding: 20px 0;
+  color: white;
+}
+
+.container .show > div table thead th {
+  background-color: rgba(92, 28, 36, 0.5);
+  width: 100px;
+  padding: 10px 0;
+}
+
+.container .show > div table td,
+.container .show > div table th {
+  border: 1px solid #5C1C24;
+  color: white;
+  height: 50px;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.container .show > div table tbody {
+  min-height: 450px;
+}
+
+.container .show .pager {
+  display: flex;
+  user-select: none;
+}
+
+.container .show .pager .pager-show {
+  margin-left: auto;
+  display: flex;
+}
+
+.container .show .pager .pager-show > a {
+  margin-left: 10px;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px;
+  width: 70px;
+  height: 20px;
+  color: #78EEDE;
+  border: 1px solid #78EEDE;
+}
+
+.container .return {
+  position: absolute;
+  height: 40px;
+  top: 10px;
+  right: 20px;
+  opacity: .5;
+}
+
+.container .return > a:hover {
+  cursor: url("../images/ico/01.ico"), auto;
+}
+
+.container .return:hover {
+  opacity: 1;
+}
+
+.container .return img {
+  height: 100%;
+}
+
+.container .model {
+  position: absolute;
+  height: 50%;
+  top: 50%;
+  z-index: 3;
+}
+
+.container .model > img {
+  height: 100%;
+}
+
+.container .model_01 {
+  transform: translate(-30%, -50%);
+}
+
+.container .model_02 {
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.container .mask {
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+}
+/*# sourceMappingURL=history.css.map */

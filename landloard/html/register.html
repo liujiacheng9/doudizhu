@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+    <link rel="stylesheet" href="../css/register.css">
+</head>
+
+<body>
+    <section class="container">
+        <div class="show">
+            <form action="" id='register-form'>
+
+                <div>
+
+                    <div class="input-container input-special">
+                        <input type="text" name='name' id="account"/>
+                        <div class="title">
+                            <div class="title-show">
+                                <div class="title-img">
+                                    
+                                        <img src="../images/icon/02.png" alt="" >
+                                       
+                                   
+                                </div>
+                                <div>
+                                    <span>舰长名称</span>
+                                </div>
+                               
+                                
+                            </div>
+                          
+                        </div>
+                    </div>
+
+
+
+                    <div class="head-container">
+                        <div class="head">
+                            <img src="../images/head/08.png" alt="" id="cover" draggable="false"> 
+                        </div>
+                        <div class="btn-head" id="btn-head"> 更改头像</div>
+                        <input type="file" id="head" name="cover" style="display: none;" accept="image/png, image/jpeg, image/jpg" onchange="changeCover()">
+                    </div>
+
+                 
+
+                </div>
+
+                <div>
+
+                    <div class="input-container input-special">
+                        <input type="password"  name="password" id="password"/>
+                        <div class="title">
+                            <div class="title-show">
+                                <div class="title-img">
+                                    <img src="../images/icon/03.png" alt="">
+                                </div>
+                                <div>
+                                    <span>密码</span>
+                                </div>
+                              
+                                
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="input-container input-special">
+                        <input type="date"   placeholder="" class="date" name="birthday"/>
+                        <div class="title">
+                            <span style="transform: translateY(-100%);line-height: 40px; font-size: 20px;color: #78EEDE;">初始日期</span>
+                            <img src="../images/icon/06.png" alt="" style="margin-left:auto;height:40px">             
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+
+                <div>
+
+                    <div class="input-container input-special">
+                        <input type="text" style="display: none;" name="sessionID" id="sessionID">
+                        <input type="text"  id="email" name="account"/>
+                        
+                        <div class="title">
+                            <div class="title-show">
+                                <div class="title-img">
+                                    <img src="../images/icon/04.png" alt="">
+                                </div>
+                                
+                                <div>
+                                    <span>邮箱</span>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="justify-content: space-between;">
+                        <div class="input-container input-code">
+                            <input type="text" name='code'/>
+                            <div class="title">
+                                <div class="title-show">
+                                    <div class="title-img">
+                                        <img src="../images/icon/05.png" alt="">
+                                    </div>
+                                    <div>
+                                        <span>验证码<span id="code-message" style="font-size: 5px;"></span></span>
+                                    </div>
+                                   
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="btn-code" id="code">获取</div>
+                        
+                    </div>
+                </div>
+
+                <div>
+                    <div class="btn-register" id="register">注册</div>
+                    <a href="./login.html" class="btn-back">返回</a>
+                </div>
+            </form>
+        </div>
+       
+        <div class="mask"></div>
+
+     
+        <audio src="../Sound/bgm/02.flac" autoplay></audio>
+    </section>
+
+    <script src="../js/common/jquery-3.2.1.min.js"></script>
+    <script src="../js/common/jquery-form.js"></script>
+    <script src="../js/register.js"></script>
+    
+</body>
+
+</html>
